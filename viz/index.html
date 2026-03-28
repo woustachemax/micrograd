@@ -151,7 +151,7 @@ footer a:hover{text-decoration:underline}
 <div class="page">
 
 <section class="hero visible">
-  <p class="eyebrow">andrej karpathy</p>
+  <p class="eyebrow">siddharth's visualization for Andrej Karapathy's</p>
   <h1>micro<br>grad</h1>
   <div style="width:2rem;height:1px;background:var(--border);margin:2rem 0"></div>
   <p>A scalar-valued autograd engine in ~100 lines of Python. Every neural network, however vast, reduces to this: repeated simple operations, each one remembering how to undo itself.</p>
@@ -239,7 +239,7 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <footer class="page">
-  built on <a href="https://github.com/karpathy/micrograd">micrograd</a> by andrej karpathy
+  built by <a href="siddharththakkar.xyz">woustachemax</a> on <a href="https://github.com/karpathy/micrograd">micrograd</a> by andrej karpathy
 </footer>
 
 <script>
@@ -427,19 +427,19 @@ function renderCG(){
     lbl.textContent = key;
     g.appendChild(lbl);
 
-    // data value
+
     const dv = mk('text',{x:x+7,y:y+27,fill:hasF?(isLeaf?'#5dd47c':'#58c4dd'):'#333','font-size':'11','font-family':'SF Mono,monospace','font-weight':'500'});
     dv.textContent = hasF ? fmt(node.data) : '--';
     g.appendChild(dv);
 
-    // grad value
+    
     if(hasB){
       const gv = mk('text',{x:x+C.BW-7,y:y+38,'text-anchor':'end',fill:'#ffd86e','font-size':'9.5','font-family':'SF Mono,monospace'});
       gv.textContent = `∇ ${fmt(node.grad)}`;
       g.appendChild(gv);
     }
 
-    // op badge on non-leaf
+    
     if(!isLeaf && node._op){
       const bx = mk('text',{x:x+C.BW-8,y:y+12,'text-anchor':'end',fill:'#333','font-size':'8','font-family':'SF Mono,monospace'});
       bx.textContent = node._op;
@@ -456,7 +456,7 @@ function renderCG(){
     svg.appendChild(g);
   });
 
-  // hint
+  
   const hint = document.getElementById('cg-hint');
   if(phase===0) hint.textContent='click "forward pass" to begin'; hint.className='hint';
   if(phase===1){ hint.textContent='forward pass complete, values shown in blue'; hint.className='hint ok'; }
@@ -473,9 +473,6 @@ function cgReset(){ cg=buildCG(); cgPhase=0; renderCG() }
 
 renderCG();
 
-// ═══════════════════════════════════════════════════════════════════════════
-//  SECTION 02  SINGLE NEURON
-// ═══════════════════════════════════════════════════════════════════════════
 
 let nNet = null, nOut = null, nPhase = 0;
 const NX = [ 1.5, -0.5 ];
